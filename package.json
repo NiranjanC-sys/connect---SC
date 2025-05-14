@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -40,5 +40,6 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
-  }
+  },
+  "homepage": "https://NiranjanC-sys.github.io/connect---SC"
 }
