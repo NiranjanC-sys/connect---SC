@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color system */
+    --color-primary: 99 102 241; /* indigo-500 */
+    --color-primary-light: 129 140 248; /* indigo-400 */
+    --color-primary-dark: 79 70 229; /* indigo-600 */
+    
+    --color-secondary: 139 92 246; /* violet-500 */
+    --color-secondary-light: 167 139 250; /* violet-400 */
+    --color-secondary-dark: 124 58 237; /* violet-600 */
+    
+    --color-accent: 236 72 153; /* pink-500 */
+    --color-accent-light: 244 114 182; /* pink-400 */
+    --color-accent-dark: 219 39 119; /* pink-600 */
+    
+    --color-success: 16 185 129; /* emerald-500 */
+    --color-warning: 245 158 11; /* amber-500 */
+    --color-error: 239 68 68; /* red-500 */
+    
+    /* Light mode */
+    --color-bg-primary: 248 250 252; /* slate-50 */
+    --color-bg-secondary: 241 245 249; /* slate-100 */
+    --color-bg-tertiary: 226 232 240; /* slate-200 */
+    
+    --color-text-primary: 15 23 42; /* slate-900 */
+    --color-text-secondary: 51 65 85; /* slate-700 */
+    --color-text-tertiary: 100 116 139; /* slate-500 */
+  }
+  
+  .dark {
+    /* Dark mode */
+    --color-bg-primary: 15 23 42; /* slate-900 */
+    --color-bg-secondary: 30 41 59; /* slate-800 */
+    --color-bg-tertiary: 51 65 85; /* slate-700 */
+    
+    --color-text-primary: 248 250 252; /* slate-50 */
+    --color-text-secondary: 226 232 240; /* slate-200 */
+    --color-text-tertiary: 148 163 184; /* slate-400 */
+  }
+  
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--color-primary)) rgb(var(--color-bg-tertiary));
+  }
+  
+  body {
+    @apply bg-bg-primary text-text-primary min-h-screen font-sans;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-tertiary rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/70 rounded-full;
+    transition: background-color 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+  
+  /* Canvas for Three.js */
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary-dark;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent-dark focus:ring-accent-dark;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent border border-bg-tertiary text-text-secondary hover:bg-bg-secondary hover:text-text-primary focus:ring-bg-tertiary;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 bg-bg-secondary rounded-xl border border-bg-tertiary focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-300 outline-none;
+  }
+  
+  .card {
+    @apply p-6 rounded-xl bg-bg-secondary border border-bg-tertiary shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .avatar {
+    @apply rounded-full object-cover border-2 border-primary;
+  }
+  
+  .story-ring {
+    @apply rounded-full bg-gradient-to-r from-primary via-accent to-secondary p-[2px];
+  }
+}
